@@ -12,6 +12,7 @@
 			description: "Bacon ipsum dolor amet in ad bresaola, biltong capicola leberkas ball ...",
 			canPurchase: true,
 			soldOut: false,
+			image: "bacon01.jpg",
 		},
 		{
 			name: "Pentagonal Gem",
@@ -19,6 +20,7 @@
 			description: "It has five edges!",
 			canPurchase: false,
 			soldOut: false,
+			image: "bacon02.jpg",
 		}
 	]
 })();
