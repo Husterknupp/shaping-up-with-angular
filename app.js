@@ -9,5 +9,7 @@
 		name: 'Dodecahedron',
 		price: 2.95,
 		description: 'Bacon ipsum dolor amet in ad bresaola, biltong capicola leberkas ball ...',
+		canPurchase: true,
+		soldOut: false,
 	}
 })();
