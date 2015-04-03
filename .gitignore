@@ -1,2 +1,3 @@
 # downloaded tutorial movies you can also find on codeschool 
 *.mp4
+.idea/*
