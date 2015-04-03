@@ -7,49 +7,49 @@
 </head>
 <body ng-controller="StoreController as store">
 
-<section>
-    <ul class="nav nav-pills" ng-init="tab = 1">
-        <li ng-class="{ active:tab === 1 }">
-            <a href ng-click="tab = 1">Name</a></li>
-        <li ng-class="{ active:tab === 2 }">
-            <a href ng-click="tab = 2">Price</a></li>
-        <li ng-class="{ active:tab === 3 }">
-            <a href ng-click="tab = 3">Description</a></li>
+<section ng-controller="PanelController as panel">
+    <ul class="nav nav-pills">
+        <li ng-class="{ active:panel.isSelected(1) }">
+            <a href ng-click="panel.selectTab(1)">Name</a></li>
+        <li ng-class="{ active:panel.isSelected(2) }">
+            <a href ng-click="panel.selectTab(2)">Price</a></li>
+        <li ng-class="{ active:panel.isSelected(3) }">
+            <a href ng-click="panel.selectTab(3)">Description</a></li>
     </ul>
-</section>
 
-<div class="row">
-    <div ng-repeat="product in store.products | orderBy:'-price'">
-        <div ng-hide="product.soldOut" class="col-md-6">
-            <h1> {{product.name}} </h1>
+    <div class="row">
+        <div ng-repeat="product in store.products | orderBy:'-price'">
+            <div ng-hide="product.soldOut" class="col-xs-6 col-md-4">
+                <h1> {{product.name}} </h1>
 
-            <h2> {{product.price | currency}} </h2>
-            <img ng-src="{{product.image}}"/>
+                <h2> {{product.price | currency}} </h2>
+                <img ng-src="{{product.image}}"/>
 
-            <p> {{product.description}} </p>
-            <button ng-show="product.canPurchase" type="button" class="btn btn-primary">
-                Add to card
-            </button>
+                <p> {{product.description}} </p>
+                <button ng-show="product.canPurchase" type="button" class="btn btn-primary">
+                    Add to card
+                </button>
 
-            <div class="panel" ng-show="tab === 1">
-                <h4>Description</h4>
+                <div class="panel" ng-show="panel.isSelected(1)">
+                    <h4>Description</h4>
 
-                <p>{{product.description}}</p>
-            </div>
+                    <p>{{product.description}}</p>
+                </div>
 
-            <div class="panel" ng-show="tab === 2">
-                <h4>Specifications</h4>
+                <div class="panel" ng-show="panel.isSelected(2)">
+                    <h4>Specifications</h4>
 
-                <p>Not there yet.</p>
-            </div>
+                    <p>Not there yet.</p>
+                </div>
 
-            <div class="panel" ng-show="tab === 3">
-                <h4>Reviews</h4>
+                <div class="panel" ng-show="panel.isSelected(3)">
+                    <h4>Reviews</h4>
 
-                <p>... Nope.</p>
+                    <p>... Nope.</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 </body>
 </html>
