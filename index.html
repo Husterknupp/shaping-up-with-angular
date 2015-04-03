@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html ng-app="store">
 <head>
-	<link rel="stylesheet" type"text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
 </head>
 <body ng-controller="StoreController as store">
-	<div ng-repeat="product in store.products | orderBy:'-price'">
-		<div ng-hide="product.soldOut">
-			<h1> {{product.name}} </h1>
-			<h2> {{product.price | currency}} </h2>
-			<img ng-src="{{product.image}}" />
-			<p> {{product.description}} </p>
-			<button ng-show="product.canPurchase">
-				Add to card </button>
-		</div>
-	</div>
-	<script type="text/javascript" src="angular.min.js"></script>
-	<script type="text/javascript" src="app.js"></script>
+<div class="row">
+    <div ng-repeat="product in store.products | orderBy:'-price'">
+        <div ng-hide="product.soldOut" class="col-md-6">
+            <h1> {{product.name}} </h1>
+
+            <h2> {{product.price | currency}} </h2>
+            <img ng-src="{{product.image}}"/>
+
+            <p> {{product.description}} </p>
+            <button ng-show="product.canPurchase" type="button" class="btn btn-primary">
+                Add to card
+            </button>
+        </div>
+    </div>
+</div>
 </body>
 </html>
