@@ -6,10 +6,10 @@
 
         this.selectTab = function (selectTab) {
             this.tab = selectTab;
-        }
+        };
 
         this.isSelected = function (checkTab) {
-            this.tab === checkTab;
+            return this.tab === checkTab;
         };
     });
 
