@@ -8,18 +8,20 @@
 <body ng-controller="StoreController as store">
 
 <section ng-controller="PanelController as panel">
-    <ul class="nav nav-pills">
-        <li ng-class="{ active: panel.isSelected(1) }">
-            <a href ng-click="panel.selectTab(1)">Name</a></li>
-        <li ng-class="{ active: panel.isSelected(2) }">
-            <a href ng-click="panel.selectTab(2)">Price</a></li>
-        <li ng-class="{ active: panel.isSelected(3) }">
-            <a href ng-click="panel.selectTab(3)">Description</a></li>
-    </ul>
+    <div class="col-md-offset-1">
+        <ul class="nav nav-pills">
+            <li ng-class="{ active: panel.isSelected(1) }">
+                <a href ng-click="panel.selectTab(1)">Name</a></li>
+            <li ng-class="{ active: panel.isSelected(2) }">
+                <a href ng-click="panel.selectTab(2)">Price</a></li>
+            <li ng-class="{ active: panel.isSelected(3) }">
+                <a href ng-click="panel.selectTab(3)">Description</a></li>
+        </ul>
+    </div>
 
     <div class="row">
         <div ng-repeat="product in store.products | orderBy:'-price'">
-            <div ng-hide="product.soldOut" class="col-xs-6 col-md-4">
+            <div ng-hide="product.soldOut" class="col-md-3 col-md-offset-1">
                 <h1> {{product.name}} </h1>
 
                 <h2> {{product.price | currency}} </h2>
